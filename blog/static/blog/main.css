@@ -1,0 +1,95 @@
+body {
+  background: #ffffc5;
+  color: black;
+  margin-top: 5rem;
+  font-family: 'Rubik', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: black;
+}
+
+ul {
+  margin: 0;
+}
+
+.bg-steel {
+  background-color: #f0dd92;
+}
+
+.site-header .navbar-brand {
+  color: #83b582;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: black;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: white;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #83b582;
+}
+
+a.article-title:hover {
+  color: #d6e4aa;
+  text-decoration: none;
+}
+
+.article-author {
+  color: #35495e;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+/* https://colorhunt.co/palette/155241
