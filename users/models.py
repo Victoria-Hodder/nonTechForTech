@@ -1,13 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
-from PIL import Image
+from PIL import Image #pillow for images
+
+#Video 8 and 9 for Corey, also this video:
+# https://www.youtube.com/watch?v=kdzevMFg3NM 
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    bio = models.TextField(blank=True)
 
     def __str__(self):
         return f'{self.user.username} Profile'
+
+
+    # below is for resizing images
 
     def save(self):
         super().save()
@@ -18,3 +25,5 @@ class Profile(models.Model):
             output_size = (300,300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+

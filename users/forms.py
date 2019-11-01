@@ -10,6 +10,8 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
+#video 9 below - this is a model form
+
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
 
@@ -17,7 +19,13 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ['username', 'email']
 
+
+# import Profile
+
 class ProfileUpdateForm(forms.ModelForm):
     class Meta():
         model = Profile
-        fields = ['image']
+        fields = ['bio', 'image']
+
+# these are created together to make one form in the template
+#import into views.py

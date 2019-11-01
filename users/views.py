@@ -15,12 +15,15 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
 
-@login_required
+@login_required # this needs to be added otherwise anyone can edit the profile
 def profile(request):
+
+    # if statement checks the forms are valid and saves the info
     if request.method == 'POST':
-        u_form = UserUpdateForm(request.POST, instance=request.user)
+        # these requests are added so your current info is already in the form
+        u_form = UserUpdateForm(request.POST, instance=request.user) 
         p_form = ProfileUpdateForm(request.POST, 
-                                    request.FILES, 
+                                    request.FILES, #for profile pics (images)
                                     instance=request.user.profile)
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
@@ -37,4 +40,7 @@ def profile(request):
         'p_form' : p_form
     }
 
+    # once you have a context you can create a form in the profile.html
+
     return render(request, 'users/profile.html', context)
+
