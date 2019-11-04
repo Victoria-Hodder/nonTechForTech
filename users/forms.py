@@ -20,7 +20,7 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username', 'email']
 
 
-# import Profile
+# import Profile (see above)
 
 class ProfileUpdateForm(forms.ModelForm):
     class Meta():
