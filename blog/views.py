@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 #LoginRequired means you have to be logged in before you can create a post
 #When you try to create a new post it redirects you to the log in page (Juhu!)
+from django.contrib.auth.models import User
 from django.views.generic import (
     ListView, 
     DetailView, 
@@ -22,9 +23,22 @@ class PostListView(ListView):
     template_name = 'blog/home.html' # <app> / <model> _ <viewtype> . html
     context_object_name = 'posts'
     ordering = ['-date_posted'] # reverses the order in which posts are listed
+    paginate_by = 5 # pagination functionality
 
 # in class views, we are setting a series of variables
 # in function views, we render a function and pass in that info
+
+
+class UserPostListView(ListView):
+    model = Post
+    template_name = 'blog/user_posts.html' # <app> / <model> _ <viewtype> . html
+    context_object_name = 'posts'
+    paginate_by = 5 # pagination functionality
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Post.objects.filter(author=user).order_by('-date_posted')
+
 
 class PostDetailView(DetailView):
     model = Post
