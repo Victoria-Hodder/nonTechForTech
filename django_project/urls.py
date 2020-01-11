@@ -46,7 +46,9 @@ urlpatterns = [
              template_name='users/password_reset_complete.html'
          ),
          name='password_reset_complete'),
-    path('', include('blog.urls')),
+    path('', include('blog.urls')), #also registers the urls in the blog app
+    # this means if you want to make any changes you just have to do it in one place
+    # without changing anything in the blog app.
 ]
 
 

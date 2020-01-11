@@ -6,11 +6,11 @@ from .models import Profile
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
 
-    class Meta():
+    class Meta(): # keep configurations in one place
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
-#video 9 below - this is a model form
+#video 9 below - this is a model form - allows us to work with a specific database model
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()

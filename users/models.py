@@ -10,14 +10,16 @@ class Profile(models.Model):
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     bio = models.TextField(max_length=250, blank=True)
 
-    def __str__(self):
+    def __str__(self): #how we want it to be displayed
         return f'{self.user.username} Profile'
+
+    # migrate! Register models in admin
 
 
     # below is for resizing images
 
     def save(self):
-        super().save()
+        super().save() #run save method of our parent class - grabs image from above
 
         img = Image.open(self.image.path)
 

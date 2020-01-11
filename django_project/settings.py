@@ -128,7 +128,8 @@ MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'blog-home'
-LOGIN_URL = 'login'
+LOGIN_URL = 'login' # this tells users to login when they are not (and trying to access profile page)
+# keeps track of the page the user was trying to access
 
 # Add email backend here!
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
